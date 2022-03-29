@@ -3,11 +3,26 @@ import pygame_menu
 import os
 import time
 from pygame.color import Color
-from RPi import GPIO
+#import RPi.GPIO as GPIO
+'''
+joystick left increments selector index in set_file
+joystick right decrements selector index in set_file
+key1 sends file
+key2 listens for file
+key3 exits when pressed twice
+
+pinout via waveshare site: https://www.waveshare.com/1.44inch-lcd-hat.htm
+key1: Pin 21
+key2: Pin 20
+key3: Pin 16
+
+JoystickLeft: Pin 5
+JoystickRight: Pin 26
+'''
 
 pygame.init()
-surface = pygame.display.set_mode((128, 128))
-menu = pygame_menu.Menu('Juan', 128, 128, theme=pygame_menu.themes.THEME_DARK)
+surface = pygame.display.set_mode((300, 300))
+menu = pygame_menu.Menu(height=300, width=300, title = 'Juan', theme=pygame_menu.themes.THEME_DARK)
 
 def set_file(file, index):
     #We get to list out the files necessary for sending

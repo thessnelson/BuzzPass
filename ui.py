@@ -40,9 +40,31 @@ def receive():
     #receive
     pass
 
-menu.add.selector('File :', [('NavySeals.txt', 1), ('Wyoming.txt', 2)], onchange=set_file)
+menu.add.selector('File :', [('NavySeals.txt', 1), ('Wyoming.txt', 2), ('DoinYourMom.txt', 2)], onchange=set_file)
 menu.add.button('Send', send)
 menu.add.button('Listen', receive)
 menu.add.button('Exit', pygame_menu.events.EXIT)
 
+clock = pygame.time.Clock()
+isRunning = True
+'''
+while isRunning == True:
+    time = clock.tick(60)/1000
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            isRunning = False
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_ESCAPE:
+                isRunning = False
+        if event.type == pygame.JOYBUTTONDOWN:
+            if event.button == 0:
+                print('Key1 pressed')
+                send()
+            if event.button == 1:
+                print('Key2 pressed')
+                receive()
+            if event.button == 2:
+                print('Key3 pressed')
+                isRunning = False
+'''
 menu.mainloop(surface)

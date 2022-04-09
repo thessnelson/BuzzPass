@@ -7,7 +7,7 @@
 #include "KEY_APP.h"
 #include "LCD_GUI.h"
 #include "LCD_Driver.h"
-// #include "Debug.h"
+#include "Debug.h"
 
 // if use 2019-06-20-raspbian-buster
 // sudo nano /boot/config.txt

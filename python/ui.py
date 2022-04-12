@@ -44,9 +44,6 @@ def set_file(file, index):
     pass
 
 def send():
-    #encrypt
-    #communicate
-    #send
     pass
 
 def receive():

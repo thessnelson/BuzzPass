@@ -1,5 +1,8 @@
 #include "LCD_GUI.h"
 #include <stdio.h>
+#include "widget.h"
+#include "wiringPil2.c"
+
 
 extern LCD_DIS sLCD_DIS;
 
@@ -351,10 +354,13 @@ void GUI_Disbitmap(POINT Xpoint, POINT Ypoint, const unsigned char *pBmp,
 function:	LCD_Show
 parameter:
 ********************************************************************************/
+//here's where all the important stuff happens.
+//We need to import the following- hardware buttons
+//We need to import the following- 
 void GUI_Show(void)
 {	
 	LCD_Clear(GUI_BACKGROUND);
-	
+
 	printf("GUI Draw Line \r\n");
 	GUI_DrawLine(0, 10, sLCD_DIS.LCD_Dis_Column, 10, RED,LINE_SOLID, DOT_PIXEL_2X2);
 	//GUI_DrawLine(0, sLCD_DIS.LCD_Dis_Page - 10, sLCD_DIS.LCD_Dis_Column, sLCD_DIS.LCD_Dis_Page - 10, RED,LINE_SOLID, DOT_PIXEL_2X2);	

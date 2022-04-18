@@ -5,6 +5,7 @@ import os
 import time
 from pygame.color import Color
 import RPi.GPIO as GPIO
+import subprocess
 
 #file-based
 import LCD_1in44
@@ -25,7 +26,6 @@ key3: Pin 16
 JoystickLeft: Pin 5
 JoystickRight: Pin 26
 '''
-
 KEY_UP_PIN     = 6 
 KEY_DOWN_PIN   = 19
 KEY_LEFT_PIN   = 5
@@ -36,25 +36,32 @@ KEY2_PIN       = 20
 KEY3_PIN       = 16
 
 pygame.init()
-surface = pygame.display.set_mode((300, 300))
-menu = pygame_menu.Menu(height=300, width=300, title = 'Juan', theme=pygame_menu.themes.THEME_DARK)
+surface = pygame.display.set_mode((128, 128))
+menu = pygame_menu.Menu(height=128, width=128, title = 'Juan', theme=pygame_menu.themes.THEME_DARK)
 
-def set_file(file, index):
-    #We get to list out the files necessary for sending
+def set_file(index):
+    if index == 2:
+        send('Wyoming.txt')
+    if index == 1:
+        send('NavySeals.txt')
     pass
 
-def send():
+def send(file):
+    subprocess.run('./send_file.c')
     pass
 
 def receive():
-    #decrypt
-    #communicate
-    #receive
+    subprocess.run('./receive.c')
+    pass
+
+def ping():
+    subprocess.run('./ping.c')
     pass
 
 menu.add.selector('File :', [('NavySeals.txt', 1), ('Wyoming.txt', 2), ('DoinYourMom.txt', 3)], onchange=set_file)
 menu.add.button('Send', send)
 menu.add.button('Listen', receive)
+menu.add.button('Search', ping)
 menu.add.button('Exit', pygame_menu.events.EXIT)
 
 clock = pygame.time.Clock()

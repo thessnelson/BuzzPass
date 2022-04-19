@@ -20,7 +20,7 @@ int main(void)
 	//2.show
 	printf("**********Init LCD**********\r\n");
 	LCD_SCAN_DIR LCD_ScanDir = SCAN_DIR_DFT;//SCAN_DIR_DFT = D2U_L2R
-	LCD_Init(LCD_ScanDir );	
+	LCD_Init(LCD_ScanDir);	
     
 	printf("LCD Show \r\n");
 	GUI_Show();

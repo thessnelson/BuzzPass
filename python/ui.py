@@ -5,6 +5,7 @@ import os
 import time
 from pygame.color import Color
 import RPi.GPIO as GPIO
+#I CANT GET THIS SHIT WORKING
 import subprocess
 
 #file-based
@@ -40,22 +41,22 @@ surface = pygame.display.set_mode((128, 128))
 menu = pygame_menu.Menu(height=128, width=128, title = 'Juan', theme=pygame_menu.themes.THEME_DARK)
 
 def set_file(index):
-    if index == 2:
-        send('Wyoming.txt')
-    if index == 1:
-        send('NavySeals.txt')
+    #if index == 2:
+        #send('Wyoming.txt')
+    #if index == 1:
+        #send('NavySeals.txt')
     pass
 
 def send(file):
-    subprocess.run('./send_file.c')
+    #subprocess.run('./send_file.c')
     pass
 
 def receive():
-    subprocess.run('./receive.c')
+    #subprocess.run('./receive.c')
     pass
 
 def ping():
-    subprocess.run('./ping.c')
+    #subprocess.run('./ping.c')
     pass
 
 menu.add.selector('File :', [('NavySeals.txt', 1), ('Wyoming.txt', 2), ('DoinYourMom.txt', 3)], onchange=set_file)
